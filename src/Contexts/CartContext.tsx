@@ -1,7 +1,6 @@
-import { createContext, ReactNode, useState } from 'react';
-import { useLocalStorage } from 'hooks/useLocalStorage';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Product } from 'interfaces/Products';
-import { useEffect } from 'react';
+import { useLocalStorage } from 'hooks/useLocalStorage';
 
 const initialState: CartContextState = {
   addProduct: () => {},

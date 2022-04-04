@@ -1,11 +1,14 @@
-import { useState, SyntheticEvent } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { makePurchase } from 'api';
 import useTranslation from 'hooks/useTranslation';
+import { useLocalStorage } from 'hooks/useLocalStorage';
 
 export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp) => {
   const t = useTranslation();
-  const [name, setName] = useState('JANE M. DOE');
-  const [card, setCard] = useState('4242 4242 4242 4242');
+  const [storedValue, setStoredValue] = useLocalStorage('paymentData', {});
+  const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>(
+    storedValue || { name: 'JANE M. DOE', card: '4242 4242 4242 4242' }
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -13,8 +16,6 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
     event.preventDefault();
     setIsLoading(true);
     setIsError(false);
-
-    console.log({ name, card });
 
     makePurchase().then(data => {
       if (data === 'success') {
@@ -33,13 +34,29 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
       <div>
         <label htmlFor="name">{t('checkoutProcess.payment.name')}</label>
         <br />
-        <input type="text" name="name" value={name} onChange={event => setName(event.target.value)} />
+        <input
+          type="text"
+          name="name"
+          value={paymentInfo.name}
+          onChange={event => {
+            setPaymentInfo(currentValue => ({ ...currentValue, name: event.target.value }));
+            setStoredValue({ ...storedValue, name: event.target.value });
+          }}
+        />
       </div>
 
       <div>
         <label htmlFor="name">{t('checkoutProcess.payment.creditCard')}</label>
         <br />
-        <input type="text" name="card" value={card} onChange={event => setCard(event.target.value)} />
+        <input
+          type="text"
+          name="card"
+          value={paymentInfo.card}
+          onChange={event => {
+            setPaymentInfo(currentValue => ({ ...currentValue, card: event.target.value }));
+            setStoredValue({ ...storedValue, card: event.target.value });
+          }}
+        />
       </div>
 
       <hr />
@@ -55,4 +72,9 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
 interface PaymentFormProp {
   handleNextStep: () => void;
   handlePrevStep: () => void;
+}
+
+interface PaymentInfo {
+  name: string;
+  card: string;
 }

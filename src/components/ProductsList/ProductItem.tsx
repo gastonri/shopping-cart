@@ -7,7 +7,7 @@ export const ProductItem = ({ id, name }: ProductItemProps) => {
   return (
     <div>
       {name}
-      <button onClick={() => addProduct({ id, name })}>+</button>
+      <button onClick={() => addProduct({ id, name })}>➕</button>
     </div>
   );
 };

@@ -1,4 +1,8 @@
 {
+  "cart": {
+    "title": "Cart",
+    "checkout": "✅ Proceed to checkout"
+  },
   "checkoutProcess": {
     "confirmation": {
       "congrats": "Congrats!",
