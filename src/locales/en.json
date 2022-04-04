@@ -1,0 +1,26 @@
+{
+  "checkoutProcess": {
+    "confirmation": {
+      "congrats": "Congrats!",
+      "successfulPurchase": "You've successfully purchased a MasterClass account."
+    },
+    "layout": {
+      "title": "MasterClass",
+      "products": "Products",
+      "cart": "Cart"
+    },
+    "payment": {
+      "name": "Name",
+      "creditCard": "Credit Card",
+      "back": "Back",
+      "confirm": "Confirm Purchase",
+      "error": "Something went wrong. Please try again later."
+    },
+    "registration": {
+      "name": "Name",
+      "address": "Street Address",
+      "cancel": "Cancel",
+      "next": "Next"
+    }
+  }
+}

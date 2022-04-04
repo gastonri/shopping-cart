@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { IntlProvider } from 'react-intl';
+import { DEFAULT_LANGUAGE } from 'constants/common';
+import { App } from './App';
+import { CartProvider } from 'Contexts/CartContext';
+import locales from 'locales';
+import flatten from 'flat';
 import './index.css';
 
-import { App } from './App';
+const messages = locales['en'];
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IntlProvider messages={flatten(messages)} locale={'en'} defaultLocale={DEFAULT_LANGUAGE}>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </IntlProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
