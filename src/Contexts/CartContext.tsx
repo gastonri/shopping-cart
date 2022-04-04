@@ -1,6 +1,7 @@
+import { createContext, ReactNode, useState } from 'react';
+import { useLocalStorage } from 'hooks/useLocalStorage';
 import { Product } from 'interfaces/Products';
-import { useState } from 'react';
-import { createContext, ReactNode } from 'react';
+import { useEffect } from 'react';
 
 const initialState: CartContextState = {
   addProduct: () => {},
@@ -18,8 +19,12 @@ export const CartContext = createContext(initialState);
 
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+  const [storedValue, setStoredValue] = useLocalStorage('CartStore', []);
 
-  const addProduct = (product: Product) => setSelectedProducts(currentValue => [...currentValue, product]);
+  const addProduct = (product: Product) => {
+    setSelectedProducts(currentValue => [...currentValue, product]);
+    setStoredValue([...storedValue, product]);
+  };
 
   const removeProduct = (id: number) => {
     const productsCopy = [...selectedProducts];
@@ -32,7 +37,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     }
 
     setSelectedProducts(productsCopy);
+    setStoredValue(productsCopy);
   };
+
+  useEffect(() => {
+    if (storedValue.length) setSelectedProducts(storedValue);
+  }, []);
 
   return (
     <CartContext.Provider
