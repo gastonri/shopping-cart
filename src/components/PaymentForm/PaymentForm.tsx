@@ -1,14 +1,15 @@
 import { SyntheticEvent, useState } from 'react';
 import { makePurchase } from 'api';
 import useTranslation from 'hooks/useTranslation';
-import { useLocalStorage } from 'hooks/useLocalStorage';
+import { useStorage } from 'hooks/useStorage';
+import { useContext } from 'react';
+import { CartContext } from 'contexts/CartContext';
 
 export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp) => {
+  const { clearCart } = useContext(CartContext);
   const t = useTranslation();
-  const [storedValue, setStoredValue] = useLocalStorage('paymentData', {});
-  const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>(
-    storedValue || { name: 'JANE M. DOE', card: '4242 4242 4242 4242' }
-  );
+  const [storedValue, setStoredValue] = useStorage('paymentData', {});
+  const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>(storedValue);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -20,6 +21,7 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
     makePurchase().then(data => {
       if (data === 'success') {
         setIsLoading(false);
+        clearCart();
         handleNextStep();
       }
 

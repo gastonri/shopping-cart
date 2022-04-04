@@ -1,25 +1,32 @@
-import { CartContext } from 'Contexts/CartContext';
+import { CartContext } from 'contexts/CartContext';
 import useTranslation from 'hooks/useTranslation';
-import { Products } from 'pages/Products/Products';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from 'routes';
 
 export const Cart = () => {
   const t = useTranslation();
-  const { selectedProducts, removeProduct } = useContext(CartContext);
+  const { addProduct, cartAmount, removeProduct, selectedProducts } = useContext(CartContext);
 
   return (
     <>
-      <h1>{t('cart.title')} ({selectedProducts.length})</h1>
+      <h1>
+        {t('cart.title')} ({cartAmount()})
+      </h1>
+
+      {!Boolean(selectedProducts.length) && <div>{t('cart.empty')}</div>}
+
       {React.Children.toArray(
-        selectedProducts.map(({ id, name }) => (
+        selectedProducts.map(({ id, name, amount }) => (
           <div>
-            <span>{id}</span>-<span>{name}</span>
-            <button onClick={() => removeProduct(id)}>➖</button>
+            <span>{name}</span> - <span>Amount: {amount}</span>
+            <span> - </span>
+            <button onClick={() => addProduct({ id, name })}>{t('cart.add')}</button>
+            <button onClick={() => removeProduct(id)}>{t('cart.remove')}</button>
           </div>
         ))
       )}
+
       {Boolean(selectedProducts.length) && (
         <Link to={routes.checkout}>
           <button>{t('cart.checkout')}</button>

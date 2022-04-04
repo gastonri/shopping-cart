@@ -1,7 +1,10 @@
 {
   "cart": {
     "title": "Cart",
-    "checkout": "✅ Proceed to checkout"
+    "checkout": "✅ Proceed to checkout",
+    "add": "➕",
+    "remove": "➖",
+    "empty": "Your cart is empty"
   },
   "checkoutProcess": {
     "confirmation": {
@@ -26,5 +29,8 @@
       "cancel": "Cancel",
       "next": "Next"
     }
+  },
+  "products": {
+    "add": "➕ Add to cart"
   }
 }

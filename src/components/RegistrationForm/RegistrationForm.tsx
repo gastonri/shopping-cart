@@ -1,12 +1,12 @@
 import { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from 'routes';
-import { useLocalStorage } from 'hooks/useLocalStorage';
+import { useStorage } from 'hooks/useStorage';
 import useTranslation from 'hooks/useTranslation';
 
 export const RegistrationForm = ({ handleNextStep }: RegistrationFormProps) => {
   const t = useTranslation();
-  const [storedValue, setStoredValue] = useLocalStorage('PersonalInfo', {});
+  const [storedValue, setStoredValue] = useStorage('PersonalInfo', {});
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>(
     storedValue || { name: 'JANE M. DOE', address: '123 Fake st.' }
   );

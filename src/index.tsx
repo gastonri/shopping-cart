@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import { DEFAULT_LANGUAGE } from 'constants/common';
 import { App } from './App';
-import { CartProvider } from 'Contexts/CartContext';
+import { CartProvider } from 'contexts/CartContext';
 import locales from 'locales';
 import flatten from 'flat';
 import './index.css';

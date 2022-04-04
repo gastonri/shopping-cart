@@ -8,6 +8,8 @@ export const getProducts = async (): Promise<Product[]> => {
     { id: 1, name: 'First Product' },
     { id: 2, name: 'Second Product' },
     { id: 3, name: 'Third Product' },
+    { id: 4, name: 'Four Product' },
+    { id: 5, name: 'Fifth Product' },
   ];
 };
 
