@@ -11,6 +11,10 @@ $emerald: #45c552;
   color: $fontColor;
   font-weight: 500;
   padding: 0.5rem 1.5rem;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 @mixin card($backgroundColor: $white, $fontColor: $emerald) {

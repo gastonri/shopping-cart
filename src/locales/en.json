@@ -22,13 +22,15 @@
       "creditCard": "Credit Card",
       "back": "Back",
       "confirm": "Confirm Purchase",
+      "formError": "All fields are required and It must be a valid credit card",
       "error": "Something went wrong. Please try again later."
     },
     "registration": {
       "name": "Name",
       "address": "Street Address",
       "cancel": "Cancel",
-      "next": "Next"
+      "next": "Next",
+      "error": "All fields all required"
     }
   },
   "products": {

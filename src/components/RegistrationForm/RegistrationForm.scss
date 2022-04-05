@@ -36,6 +36,12 @@
     column-count: initial !important;
   }
 
+  &__error {
+    color: $pink;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
   &__buttons {
     display: flex;
     justify-content: space-between;

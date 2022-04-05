@@ -18,6 +18,8 @@ export const RegistrationForm = ({ handleNextStep }: RegistrationFormProps) => {
     handleNextStep();
   };
 
+  const isFormValid = (): boolean => Boolean(personalInfo.name && personalInfo.address);
+
   return (
     <div className="registration-form">
       <form onSubmit={handleSubmit} className="registration-form__form">
@@ -49,9 +51,18 @@ export const RegistrationForm = ({ handleNextStep }: RegistrationFormProps) => {
             }}
           />
         </div>
+
+        {!isFormValid() && (
+          <span className="registration-form__error">{t('checkoutProcess.registration.error')}</span>
+        )}
+
         <div className="registration-form__buttons">
-          <Link className="registration-form__button-cancel" to={routes.cart}>{t('checkoutProcess.registration.cancel')}</Link>
-          <button className="registration-form__button-next" type="submit">{t('checkoutProcess.registration.next')}</button>
+          <Link className="registration-form__button-cancel" to={routes.cart}>
+            {t('checkoutProcess.registration.cancel')}
+          </Link>
+          <button disabled={!isFormValid()} className="registration-form__button-next" type="submit">
+            {t('checkoutProcess.registration.next')}
+          </button>
         </div>
       </form>
     </div>

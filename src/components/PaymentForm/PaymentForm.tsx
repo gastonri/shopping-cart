@@ -6,12 +6,12 @@ import { useContext } from 'react';
 import { CartContext } from 'contexts/CartContext';
 
 import './PaymentForm.scss';
-import { storage } from 'constants/common';
+import { creditCardsRegex, storage } from 'constants/common';
 
 export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp) => {
   const { clearCart } = useContext(CartContext);
   const t = useTranslation();
-  const [,, clearPersonalInfo] = useStorage(storage.personalInfo, {});
+  const [, , clearPersonalInfo] = useStorage(storage.personalInfo, {});
   const [storedValue, setStoredValue, clearPaymentData] = useStorage(storage.paymentData, {});
   const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>(storedValue);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,6 +34,13 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
       setIsError(true);
     });
   };
+
+  const isValidForm = () =>
+    Boolean(
+      paymentInfo.name &&
+        paymentInfo.card &&
+        Boolean(creditCardsRegex.filter(regex => regex.test(paymentInfo.card)).length)
+    );
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -70,11 +77,14 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
           />
         </div>
         {isError && <div>{t('checkoutProcess.payment.error')}</div>}
+        {!isValidForm() && (
+          <div className="payment-form__error">{t('checkoutProcess.payment.formError')}</div>
+        )}
         <div className="payment-form__buttons">
           <button className="payment-form__button-back" onClick={handlePrevStep}>
             {t('checkoutProcess.payment.back')}
           </button>
-          <button className="payment-form__button-confirm" type="submit">
+          <button disabled={!isValidForm()} className="payment-form__button-confirm" type="submit">
             {t('checkoutProcess.payment.confirm')}
           </button>
         </div>
