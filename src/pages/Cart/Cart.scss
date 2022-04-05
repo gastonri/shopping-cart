@@ -1,0 +1,79 @@
+@import 'styles/base/settings.scss';
+
+.cart {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    color: $light-blue;
+    align-self: flex-start;
+  }
+
+  &__empty {
+    @include card($pink, $white);
+  }
+
+  &__item-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    @include card();
+    padding: 1rem 2rem;
+    margin: 1rem;
+
+    &-name {
+      color: $emerald;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__amount {
+    color: $light-blue;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  &__button {
+    &-add {
+      @include button();
+      padding: 0.5rem;
+    }
+
+    &-minus {
+      @include button($pink, $white);
+      padding: 0.5rem;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    &-checkout {
+      @include button($light-blue, $white);
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+
+    &-clear {
+      @include button($pink, $white);
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import 'styles/base/settings.scss';
+
+.layout {
+  &__nav {
+    align-items: center;
+    background-color: $light-blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+
+  &__title {
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &__link {
+    margin: 0 0.5rem;
+  }
+}

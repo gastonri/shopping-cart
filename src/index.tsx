@@ -6,7 +6,8 @@ import { App } from './App';
 import { CartProvider } from 'contexts/CartContext';
 import locales from 'locales';
 import flatten from 'flat';
-import './index.css';
+
+import 'styles/styles.scss';
 
 const messages = locales['en'];
 

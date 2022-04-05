@@ -1,5 +1,4 @@
 import useTranslation from 'hooks/useTranslation';
-import { useState } from 'react';
 
 export const OrderConfirmation = () => {
   const t = useTranslation();

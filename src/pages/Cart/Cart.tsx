@@ -4,34 +4,46 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from 'routes';
 
+import './Cart.scss';
+
 export const Cart = () => {
   const t = useTranslation();
-  const { addProduct, cartAmount, removeProduct, selectedProducts } = useContext(CartContext);
+  const { addProduct, cartAmount, clearCart, removeProduct, selectedProducts } = useContext(CartContext);
 
   return (
-    <>
-      <h1>
+    <div className="cart">
+      <h1 className="cart__title">
         {t('cart.title')} ({cartAmount()})
       </h1>
 
-      {!Boolean(selectedProducts.length) && <div>{t('cart.empty')}</div>}
+      {!Boolean(selectedProducts.length) && <div className="cart__empty">{t('cart.empty')}</div>}
 
-      {React.Children.toArray(
-        selectedProducts.map(({ id, name, amount }) => (
-          <div>
-            <span>{name}</span> - <span>Amount: {amount}</span>
-            <span> - </span>
-            <button onClick={() => addProduct({ id, name })}>{t('cart.add')}</button>
-            <button onClick={() => removeProduct(id)}>{t('cart.remove')}</button>
-          </div>
-        ))
-      )}
-
+      <div className="cart__item-wrapper">
+        {React.Children.toArray(
+          selectedProducts.map(({ id, name, amount }) => (
+            <div className="cart__item">
+              <div className="cart__item-name">{name}</div>
+              <div className="cart__item-buttons">
+                <button className="cart__button-minus" onClick={() => removeProduct(id)}>
+                  {t('cart.remove')}
+                </button>
+                <div className="cart__amount">{amount}</div>
+                <button className="cart__button-add" onClick={() => addProduct({ id, name })}>
+                  {t('cart.add')}
+                </button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
       {Boolean(selectedProducts.length) && (
-        <Link to={routes.checkout}>
-          <button>{t('cart.checkout')}</button>
-        </Link>
+        <div className="cart__button-wrapper">
+          <button className="cart__button-clear" onClick={clearCart}>{t('cart.clear')}</button>
+          <Link to={routes.checkout}>
+            <button className="cart__button-checkout">{t('cart.checkout')}</button>
+          </Link>
+        </div>
       )}
-    </>
+    </div>
   );
 };

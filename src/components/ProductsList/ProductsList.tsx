@@ -3,17 +3,21 @@ import { Product } from 'interfaces/Products';
 import { CartContext } from 'contexts/CartContext';
 import useTranslation from 'hooks/useTranslation';
 
+import './ProductList.scss';
+
 export const ProductsList = ({ products }: ProductsListInterface) => {
   const t = useTranslation();
   const { addProduct } = useContext(CartContext);
 
   return (
-    <div>
+    <div className="productList">
       {React.Children.toArray(
         products.map(({ name, id }: Product) => (
-          <div>
-            {name}
-            <button onClick={() => addProduct({ id, name })}>{t('products.add')}</button>
+          <div className="productList__item">
+            <div className="productList__name">{name}</div>
+            <button className="productList__button" onClick={() => addProduct({ id, name })}>
+              {t('products.add')}
+            </button>
           </div>
         ))
       )}

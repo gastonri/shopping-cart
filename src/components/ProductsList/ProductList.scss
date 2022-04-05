@@ -1,0 +1,19 @@
+@import 'styles/base/settings.scss';
+
+.productList {
+  display: flex;
+  justify-content: space-between;
+
+  &__item {
+    @include card();
+  }
+
+  &__name {
+    color: $emerald;
+    margin-bottom: 0.5rem;
+  }
+
+  &__button {
+    @include button();
+  }
+}

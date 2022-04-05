@@ -2,9 +2,10 @@
   "cart": {
     "title": "Cart",
     "checkout": "✅ Proceed to checkout",
-    "add": "➕",
-    "remove": "➖",
-    "empty": "Your cart is empty"
+    "add": "+",
+    "remove": "-",
+    "empty": "Your cart is empty",
+    "clear": "❌ Clear Cart"
   },
   "checkoutProcess": {
     "confirmation": {
