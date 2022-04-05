@@ -1,0 +1,54 @@
+@import 'styles/base/settings.scss';
+
+.registration-form {
+  display: flex;
+  justify-content: center;
+
+  &__form {
+    @include card();
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  &__input {
+    @include input();
+    margin-bottom: 1rem;
+  }
+
+  &__text-area {
+    @include input();
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+  }
+
+  &__button {
+    &-cancel {
+      @include button ($pink, $white);
+    }
+
+    &-next {
+      @include button ();
+    }
+  }
+}

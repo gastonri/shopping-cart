@@ -18,5 +18,9 @@ export const useStorage = (key: string, initialValue: any) => {
     }
   };
 
-  return [storedValue, setValue];
+  const clearStorage = () => {
+    sessionStorage.clear();
+  };
+
+  return [storedValue, setValue, clearStorage];
 };

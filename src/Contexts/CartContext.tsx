@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { CartProduct, Product } from 'interfaces/Products';
 import { useStorage } from 'hooks/useStorage';
+import { storage } from 'constants/common';
 
 const initialState: CartContextState = {
   addProduct: () => {},
@@ -22,7 +23,7 @@ export const CartContext = createContext(initialState);
 
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [selectedProducts, setSelectedProducts] = useState<CartProduct[]>([]);
-  const [storedValue, setStoredValue] = useStorage('CartStore', []);
+  const [storedValue, setStoredValue] = useStorage(storage.cartStore, []);
 
   const addProduct = (product: Product) => {
     const productAdded = selectedProducts.find(({ id }) => id === product.id);

@@ -1,0 +1,10 @@
+@import 'styles/base/settings.scss';
+
+.order-confirmation {
+  @include card($emerald, $white);
+  text-align: center;
+
+  &__title {
+    font-size: 2rem;
+  }
+}

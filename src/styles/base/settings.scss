@@ -22,3 +22,22 @@ $emerald: #45c552;
   flex-direction: column;
   padding: 1rem;
 }
+
+@mixin input() {
+  background-color: transparent;
+  background-image: linear-gradient($pink, $pink), linear-gradient($light-blue, $light-blue);
+  background-position: center bottom, center calc(100% - 1px);
+  background-repeat: no-repeat;
+  background-size: 0 2px, 100% 1px;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  float: none;
+  font-weight: 400;
+  line-height: 1.42857;
+  margin-bottom: 0.5rem;
+  outline: none;
+  padding: 7px 0;
+  transition: background 0s ease-out;
+  width: 12rem;
+}
