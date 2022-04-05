@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { Product } from 'interfaces/Products';
 import { CartContext } from 'contexts/CartContext';
 import useTranslation from 'hooks/useTranslation';
+import { Product } from 'interfaces/Products';
+import React, { useContext } from 'react';
 
 import './ProductList.scss';
 

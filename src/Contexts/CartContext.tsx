@@ -1,7 +1,7 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
-import { CartProduct, Product } from 'interfaces/Products';
-import { useStorage } from 'hooks/useStorage';
 import { storage } from 'constants/common';
+import { useStorage } from 'hooks/useStorage';
+import { CartProduct, Product } from 'interfaces/Products';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 const initialState: CartContextState = {
   addProduct: () => {},
@@ -78,6 +78,6 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   );
 };
 
-export interface CartProviderProps {
+interface CartProviderProps {
   children: ReactNode;
 }

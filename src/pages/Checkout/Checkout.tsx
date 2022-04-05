@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import { OrderConfirmation } from 'components/OrderConfirmation/OrderConfirmation';
 import { PaymentForm } from 'components/PaymentForm/PaymentForm';
 import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
+import { storage } from 'constants/common';
+import { useStorage } from 'hooks/useStorage';
+import { useEffect, useState } from 'react';
 
 import './Checkout.scss';
-import { useStorage } from 'hooks/useStorage';
-import { storage } from 'constants/common';
-import { useEffect } from 'react';
 
 export const Checkout = () => {
   const [personalInfo] = useStorage(storage.personalInfo, {});

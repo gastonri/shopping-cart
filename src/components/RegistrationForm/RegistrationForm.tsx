@@ -1,11 +1,11 @@
+import { storage } from 'constants/common';
+import { useStorage } from 'hooks/useStorage';
+import useTranslation from 'hooks/useTranslation';
 import { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from 'routes';
-import { useStorage } from 'hooks/useStorage';
-import useTranslation from 'hooks/useTranslation';
 
 import './RegistrationForm.scss';
-import { storage } from 'constants/common';
 
 export const RegistrationForm = ({ handleNextStep }: RegistrationFormProps) => {
   const t = useTranslation();

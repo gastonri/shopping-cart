@@ -1,12 +1,11 @@
-import { SyntheticEvent, useState } from 'react';
 import { makePurchase } from 'api';
-import useTranslation from 'hooks/useTranslation';
-import { useStorage } from 'hooks/useStorage';
-import { useContext } from 'react';
+import { creditCardsRegex, storage } from 'constants/common';
 import { CartContext } from 'contexts/CartContext';
+import { useStorage } from 'hooks/useStorage';
+import useTranslation from 'hooks/useTranslation';
+import { SyntheticEvent, useContext, useState } from 'react';
 
 import './PaymentForm.scss';
-import { creditCardsRegex, storage } from 'constants/common';
 
 export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp) => {
   const { clearCart } = useContext(CartContext);
