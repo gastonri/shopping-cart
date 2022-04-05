@@ -10,9 +10,8 @@ import './RegistrationForm.scss';
 export const RegistrationForm = ({ handleNextStep }: RegistrationFormProps) => {
   const t = useTranslation();
   const [storedValue, setStoredValue] = useStorage(storage.personalInfo, {});
-  const [personalInfo, setPersonalInfo] = useState<PersonalInfo>(
-    storedValue || { name: 'JANE M. DOE', address: '123 Fake st.' }
-  );
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo>(storedValue);
+
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     handleNextStep();

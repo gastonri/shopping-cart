@@ -4,37 +4,49 @@ import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
 import { storage } from 'constants/common';
 import { useStorage } from 'hooks/useStorage';
 import { useEffect, useState } from 'react';
+import { keySteps } from 'constants/common';
 
 import './Checkout.scss';
 
 export const Checkout = () => {
   const [personalInfo] = useStorage(storage.personalInfo, {});
   const [paymentData] = useStorage(storage.paymentData, {});
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState<string>(keySteps.registration);
 
-  const handleNextStep = () => setCurrentStep(currentStep + 1);
-  const handlePrevStep = () => currentStep > 0 && setCurrentStep(currentStep - 1);
+  const handleNextStep = (nextStep: string) => setCurrentStep(nextStep);
 
   useEffect(() => {
     if (Object.keys(personalInfo).length) {
-      setCurrentStep(0);
+      setCurrentStep(keySteps.registration);
+
       if (Object.keys(paymentData).length) {
-        setCurrentStep(1);
+        setCurrentStep(keySteps.payment);
       }
     }
   }, [personalInfo, paymentData, setCurrentStep]);
 
-  const steps = [
-    { title: 'Registration', component: <RegistrationForm handleNextStep={handleNextStep} /> },
-    {
-      title: 'Payment',
-      component: <PaymentForm handleNextStep={handleNextStep} handlePrevStep={handlePrevStep} />,
+  const steps = {
+    [keySteps.registration]: {
+      key: 'registration',
+      title: 'Registration',
+      component: <RegistrationForm handleNextStep={() => handleNextStep(keySteps.payment)} />,
     },
-    {
+    [keySteps.payment]: {
+      key: 'payment',
+      title: 'Payment',
+      component: (
+        <PaymentForm
+          handlePrevStep={() => handleNextStep(keySteps.registration)}
+          handleNextStep={() => handleNextStep(keySteps.orderConfirmation)}
+        />
+      ),
+    },
+    [keySteps.orderConfirmation]: {
+      key: 'orderConfirmation',
       title: 'Order Confirmation',
       component: <OrderConfirmation />,
     },
-  ];
+  };
 
   return (
     <div>

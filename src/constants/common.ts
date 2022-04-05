@@ -13,3 +13,9 @@ export const creditCardsRegex = [
   /^(?:3[47][0-9]{13})$/, // amexpRegEx
   /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/, // discovRegEx
 ];
+
+export const keySteps = {
+  registration: 'registration',
+  payment: 'payment',
+  orderConfirmation: 'orderConfirmation',
+};

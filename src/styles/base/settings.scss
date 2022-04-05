@@ -9,11 +9,13 @@ $emerald: #45c552;
   border-radius: 2px;
   border: none;
   color: $fontColor;
+  cursor: pointer;
   font-weight: 500;
   padding: 0.5rem 1.5rem;
 
   &:disabled {
     opacity: 0.5;
+    cursor: default;
   }
 }
 

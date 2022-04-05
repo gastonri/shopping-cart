@@ -22,7 +22,7 @@ export const Cart = () => {
         {React.Children.toArray(
           selectedProducts.map(({ id, name, amount }) => (
             <div className="cart__item">
-              <div className="cart__item-name">{name}</div>
+              <h2 className="cart__item-name">{name}</h2>
               <div className="cart__item-buttons">
                 <button className="cart__button-minus" onClick={() => removeProduct(id)}>
                   {t('cart.remove')}
