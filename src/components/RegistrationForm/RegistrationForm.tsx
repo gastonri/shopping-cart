@@ -26,6 +26,7 @@ export const RegistrationForm = ({ handleNextStep }: RegistrationFormProps) => {
           <label htmlFor="name">{t('checkoutProcess.registration.name')}</label>
           <br />
           <input
+            aria-label="name"
             className="registration-form__input"
             type="text"
             name="name"
@@ -38,9 +39,10 @@ export const RegistrationForm = ({ handleNextStep }: RegistrationFormProps) => {
         </div>
 
         <div>
-          <label htmlFor="name">{t('checkoutProcess.registration.address')}</label>
+          <label htmlFor="address">{t('checkoutProcess.registration.address')}</label>
           <br />
           <textarea
+            aria-label="address"
             className="registration-form__text-area"
             name="address"
             value={personalInfo.address}

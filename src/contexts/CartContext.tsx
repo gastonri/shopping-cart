@@ -4,7 +4,7 @@ import { useCartContext } from './useCartContext';
 
 const CartContext = createContext({} as CartContextProps);
 
-const CartProvider = ({ children }: CartProviderProps) => {
+const CartProvider = ({ children, props }: CartProviderProps) => {
   const { addProduct, cartAmount, clearCart, removeProduct, selectedProducts } = useCartContext();
 
   return (
@@ -15,6 +15,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
         clearCart,
         removeProduct,
         selectedProducts,
+        ...props,
       }}
     >
       {children}
@@ -47,4 +48,5 @@ interface CartContextProps extends CartState {
 
 interface CartProviderProps {
   children: JSX.Element | JSX.Element[];
+  props?: CartContextProps;
 }
