@@ -2,7 +2,23 @@
 
 @font-face {
   font-family: 'transat';
-  src: url('../fonts/transat_medium.ttf');
+  src: url('../fonts/TransatLight.otf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'transat';
+  src: url('../fonts/TransatMedium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'transat';
+  src: url('../fonts/TransatBold.otf');
+  font-weight: 700;
+  font-style: normal;
 }
 
 html,

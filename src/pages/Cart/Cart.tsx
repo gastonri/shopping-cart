@@ -20,15 +20,15 @@ export const Cart = () => {
 
       <div className="cart__item-wrapper">
         {React.Children.toArray(
-          selectedProducts.map(({ id, name, amount }) => (
+          selectedProducts.map((product) => (
             <div className="cart__item">
-              <h2 className="cart__item-name">{name}</h2>
+              <h2 className="cart__item-name">{product.class_name}</h2>
               <div className="cart__item-buttons">
-                <button className="cart__button-minus" onClick={() => removeProduct(id)}>
+                <button className="cart__button-minus" onClick={() => removeProduct(product.id)}>
                   {t('cart.remove')}
                 </button>
-                <div className="cart__amount">{amount}</div>
-                <button className="cart__button-add" onClick={() => addProduct({ id, name })}>
+                <div className="cart__amount">{product.amount}</div>
+                <button className="cart__button-add" onClick={() => addProduct(product)}>
                   {t('cart.add')}
                 </button>
               </div>

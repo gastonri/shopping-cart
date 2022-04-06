@@ -1,6 +1,9 @@
 export interface Product {
+  class_name: string;
+  full_description: string;
+  headshot: string;
   id: number;
-  name: string;
+  instructor: string;
 }
 
 export interface CartProduct extends Product {

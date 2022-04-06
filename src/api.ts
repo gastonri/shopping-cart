@@ -1,16 +1,11 @@
 import { Product } from "interfaces/Products";
+import courses from 'data/products.json';
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const getProducts = async (): Promise<Product[]> => {
   await sleep(500);
-  return [
-    { id: 1, name: 'First Product' },
-    { id: 2, name: 'Second Product' },
-    { id: 3, name: 'Third Product' },
-    { id: 4, name: 'Four Product' },
-    { id: 5, name: 'Fifth Product' },
-  ];
+  return courses;
 };
 
 export const makePurchase = async () => {

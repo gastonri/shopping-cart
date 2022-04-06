@@ -12,10 +12,17 @@ export const ProductsList = ({ products }: ProductsListInterface) => {
   return (
     <div className="productList">
       {React.Children.toArray(
-        products.map(({ name, id }: Product) => (
+        products.map((product: Product) => (
           <div className="productList__item">
-            <div className="productList__name">{name}</div>
-            <button className="productList__button" onClick={() => addProduct({ id, name })}>
+            <img
+              className="productList__image"
+              src={product.headshot}
+              alt={`${product.instructor} instructor`}
+            />
+            <div className="productList__instructor">{product.instructor}</div>
+            <div className="productList__class-name">{product.class_name}</div>
+            <div className="productList__description">{product.full_description}</div>
+            <button className="productList__button" onClick={() => addProduct(product)}>
               {t('products.add')}
             </button>
           </div>

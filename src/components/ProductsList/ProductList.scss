@@ -2,18 +2,62 @@
 
 .productList {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 
   &__item {
-    @include card();
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0.5rem;
+    width: 30%;
+
+    @media screen and (max-width: 768px) {
+      width: 40%;
+    }
+
+    @media screen and (max-width: 425px) {
+      width: 90%;
+    }
   }
 
-  &__name {
-    color: $emerald;
+  &__image {
+    @include card();
+    align-self: center;
+    height: 200px;
+    margin-bottom: 1rem;
+    padding: 0;
+    width: 280;
+  }
+
+  &__instructor {
+    color: $light-blue;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  &__class-name {
+    color: $emerald;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    color: $emerald;
+    filter: brightness(75%);
+    font-size: 1rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
+    margin-top: auto;
   }
 
   &__button {
     @include button();
+    margin-top: auto;
   }
 }

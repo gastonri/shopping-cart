@@ -1,0 +1,37 @@
+[
+  {
+    "class_name": "Become a Streamer",
+    "full_description": "Build your streaming presence in 30 days with celebrated game streamer Tyler “Ninja” Blevins. During his session, Ninja will guide you through the foundations of streaming content, building a brand, and creating meaningful online communities. At the end of this experience, you’ll have a clear style, voice, and vision for the internet’s favorite new stream.",
+    "headshot": "https://www.masterclass.com/course-images/attachments/l1pnudj84q0i0vd9uzemzoikq7co?width=300&height=200&fit=cover&dpr=2",
+    "id": 5,
+    "instructor": "NINJA"
+  },
+  {
+    "class_name": "Elevate Your Singing And Stage Presence",
+    "full_description": "Take your singing from the practice room to the stage with Grammy Award winner, Christina Aguilera. During her session, Christina will teach you how to elevate your vocals, establish new techniques, and bring it all together in an award-worthy performance. After 30 days, you’ll have a new set of singing skills and a polished, recorded performance to share with the world.",
+    "headshot": "https://www.masterclass.com/course-images/attachments/6wm0c67jcfjje9s9siyts62ztd48?width=300&height=200&fit=cover&dpr=2",
+    "id": 4,
+    "instructor": "Christina Aguilera"
+  },
+  {
+    "class_name": "Win Workplace Negotiations",
+    "full_description": "Increase your influence, gain trust, and find your voice at work—all in 30 days. In this session with former FBI negotiator Chris Voss, you’ll learn 12 proven tactics to use every day at work, for big meetings or small moments. And you’ll get plenty of no-pressure practice to help you ace high-pressure situations.",
+    "headshot": "https://www.masterclass.com/course-images/attachments/srf2dsigg6odoprp83pfzigrmzwi?width=300&height=200&fit=cover&dpr=2",
+    "id": 3,
+    "instructor": "Chris Voss"
+  },
+  {
+    "class_name": "Design Stunning Floral Arrangements",
+    "full_description": "Become your own floral artist in 30 days with the award-winning and visionary florist Maurice Harris. During his session, Maurice will teach you how to transform your unique, creative voice into an original style. You will finish this experience with 5 award-worthy arrangements, including one that’s all your own.",
+    "headshot": "https://www.masterclass.com/course-images/attachments/h6m46hglvvkqv0nitec36dff8367?width=300&height=200&fit=cover&dpr=2",
+    "id": 2,
+    "instructor": "Maurice Harris"
+  },
+  {
+    "class_name": "Bake Like A Pro",
+    "full_description": "Take your baking to the next level in 30 days with James Beard Award winner Joanne Chang. During her session, Joanne will help you transform into the baker of your dreams. You will walk away from this experience with 5 award-winning bakes, 3 original recipes of your own, and a new set of professional baking skills.",
+    "headshot": "https://www.masterclass.com/course-images/attachments/28jqoenrlokdpbusm7innll6qn8h?width=300&height=200&fit=cover&dpr=2",
+    "id": 1,
+    "instructor": "Joanne Chang"
+  }
+]
