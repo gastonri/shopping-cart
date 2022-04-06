@@ -1,10 +1,11 @@
-import { fireEvent, getByLabelText, render, screen } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { DEFAULT_LANGUAGE } from 'constants/common';
 import flatten from 'flat';
 import locales from 'locales';
 import { IntlProvider } from 'react-intl';
-import { Checkout } from './Checkout';
 import { MemoryRouter } from 'react-router-dom';
+import { Checkout } from './Checkout';
 
 const messages = locales['en'];
 
@@ -32,8 +33,8 @@ describe('Checkout', () => {
 
     expect(getByText('Registration')).toBeInTheDocument();
 
-    fireEvent.change(getByLabelText('name'), { target: { value: 'Gastón' } });
-    fireEvent.change(getByLabelText('address'), { target: { value: 'Fake st. 123' } });
+    userEvent.type(getByLabelText('name'), 'Gastón');
+    userEvent.type(getByLabelText('address'), 'Fake st. 123');
 
     fireEvent.click(getByText('Next'));
     expect(getByText('Payment')).toBeInTheDocument();
@@ -44,8 +45,8 @@ describe('Checkout', () => {
       wrapper: IntlWrapper,
     });
 
-    fireEvent.change(getByLabelText('name'), { target: { value: 'Gastón' } });
-    fireEvent.change(getByLabelText('address'), { target: { value: 'Fake st. 123' } });
+    userEvent.type(getByLabelText('name'), 'Gastón');
+    userEvent.type(getByLabelText('address'), 'Fake st. 123');
     fireEvent.click(getByText('Next'));
 
     expect(getByText('Payment')).toBeInTheDocument();

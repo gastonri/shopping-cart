@@ -50,6 +50,7 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
           <label htmlFor="name">{t('checkoutProcess.payment.name')}</label>
           <br />
           <input
+            aria-label="name"
             className="payment-form__input"
             type="text"
             name="name"
@@ -65,6 +66,7 @@ export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp)
           <label htmlFor="name">{t('checkoutProcess.payment.creditCard')}</label>
           <br />
           <input
+            aria-label="card"
             className="payment-form__input"
             type="text"
             name="card"
