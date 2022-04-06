@@ -1,13 +1,13 @@
-import { CartContext } from 'contexts/CartContext';
+import { useCart } from 'contexts/CartContext';
 import useTranslation from 'hooks/useTranslation';
 import { Product } from 'interfaces/Products';
-import React, { useContext } from 'react';
+import React from 'react';
 
 import './ProductList.scss';
 
 export const ProductsList = ({ products }: ProductsListInterface) => {
   const t = useTranslation();
-  const { addProduct } = useContext(CartContext);
+  const { addProduct } = useCart();
 
   return (
     <div className="productList">

@@ -1,6 +1,6 @@
-import { CartContext } from 'contexts/CartContext';
+import { useCart } from 'contexts/CartContext';
 import useTranslation from 'hooks/useTranslation';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from 'routes';
 
@@ -8,7 +8,7 @@ import './Cart.scss';
 
 export const Cart = () => {
   const t = useTranslation();
-  const { addProduct, cartAmount, clearCart, removeProduct, selectedProducts } = useContext(CartContext);
+  const { addProduct, cartAmount, clearCart, removeProduct, selectedProducts } = useCart();
 
   return (
     <div className="cart">

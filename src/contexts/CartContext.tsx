@@ -1,10 +1,10 @@
 import { CartProduct, Product } from 'interfaces/Products';
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { useCartContext } from './useCartContext';
 
-export const CartContext = createContext({} as CartContextProps);
+const CartContext = createContext({} as CartContextProps);
 
-export const CartProvider = ({ children }: CartProviderProps) => {
+const CartProvider = ({ children }: CartProviderProps) => {
   const { addProduct, cartAmount, clearCart, removeProduct, selectedProducts } = useCartContext();
 
   return (
@@ -22,6 +22,18 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   );
 };
 
+const useCart = () => {
+  const cart = useContext(CartContext);
+
+  if (!cart) {
+    throw new Error('Cannot use `useCart` outside of a CartProvider');
+  }
+
+  return cart;
+};
+
+export { CartProvider, useCart };
+
 interface CartState {
   selectedProducts: CartProduct[];
 }
@@ -31,7 +43,6 @@ interface CartContextProps extends CartState {
   cartAmount: () => number;
   clearCart: () => void;
   removeProduct: (id: number) => void;
-
 }
 
 interface CartProviderProps {

@@ -1,14 +1,14 @@
 import { makePurchase } from 'api';
 import { creditCardsRegex, storage } from 'constants/common';
-import { CartContext } from 'contexts/CartContext';
+import { useCart } from 'contexts/CartContext';
 import { useStorage } from 'hooks/useStorage';
 import useTranslation from 'hooks/useTranslation';
-import { SyntheticEvent, useContext, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 import './PaymentForm.scss';
 
 export const PaymentForm = ({ handleNextStep, handlePrevStep }: PaymentFormProp) => {
-  const { clearCart } = useContext(CartContext);
+  const { clearCart } = useCart();
   const t = useTranslation();
   const [, , clearPersonalInfo] = useStorage(storage.personalInfo, {});
   const [storedValue, setStoredValue, clearPaymentData] = useStorage(storage.paymentData, {});
