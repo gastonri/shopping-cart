@@ -29,5 +29,5 @@ export const Layout = ({ children }: LayoutProp) => {
 };
 
 interface LayoutProp {
-  children: React.ReactNode;
+  children: JSX.Element | JSX.Element [];
 }
